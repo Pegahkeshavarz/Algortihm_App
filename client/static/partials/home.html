@@ -1,0 +1,89 @@
+
+<div ng-controller="userCtrl">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo"><i class="fa fa-hashtag" aria-hidden="true"></i>AlgorithmApp</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href='#register' modal>REGISTER</a></li>
+                <li><a href="#login" modal>LOG IN</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" id="about">
+        <h2>About</h2>
+        <p class="flow-text"> <i class="fa fa-quote-left" aria-hidden="true"></i>The Algorithm App includes Category based algorithms that you can work on live with other users.  </p>
+
+        <p class="flow-text">Each algorithm allows users to have a live chat with other users that are concurrently working on the same algorithm so you can ask questions or suggest hints that can help others. Users can also compare their own solution with our correct solution.<i class="fa fa-quote-right" aria-hidden="true"></i></p>
+
+
+        <!-- Modal Structure -->
+        <div id="register" class="modal">
+            <div class="modal-content">
+                <h4>Register</h4>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="name" type="text" class="validate" ng-model="newUser.name">
+                                <label for="name">Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="email" type="email" class="validate" ng-model="newUser.email">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" type="password" class="validate" ng-model="newUser.password">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            {{ password_error }}
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="c_password" type="password" class="validate" ng-model="newUser.c_password">
+                                <label for="c_password">Confirm Password</label>
+                            </div>
+
+                        </div>
+                        <a class="modal-action waves-effect waves-green btn-flat btn black text-center" ng-click="registerUser()">Register</a>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="login" class="modal">
+            <div class="modal-content">
+                <h4>Login</h4>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            {{ login_error }}
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate" ng-model="login.email">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" type="password" class="validate" ng-model="login.password">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <a class="modal-action waves-effect waves-green btn-flat btn black" ng-click="loginUser()">Login</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

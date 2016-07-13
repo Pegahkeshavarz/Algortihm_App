@@ -1,0 +1,69 @@
+<nav>
+    <div class="nav-wrapper">
+        <a class="brand-logo"><i class="fa fa-hashtag" aria-hidden="true"></i>AlgorithmApp</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#docs">DOCS</a></li>
+            <li class="active"><a href="#dashboard">DASHBOARD</a></li>
+            <li><a href="#home">LOGOUT</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <div class="wrap" ng-controller="algorithmCtrl">
+        <div class="left-col">
+            <div class="container">
+                <h5><strong>{{current_algo.name}}</strong></h5>
+                <blockquote>
+                    <strong>{{current_algo.algorithm}}</strong>
+                </blockquote>
+
+                <div class="row">
+
+                    <form id="solution_form" class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="textarea1" class="materialize-textarea" ng-model="newSolution.solution"></textarea>
+                                <label for="textarea1">Your Solution</label>
+
+                                <button class="waves-effect waves-light btn red submitSolution" type="submit" name="button" ng-click="check(current_algo._id, current_user[0]._id)">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="show" class="col s12 ">
+                        <div class="col s6">
+                            <h5 class="pre_tag">Your Solution:</h5>
+                            <pre class="pre_tag"><code>{{userSolution}}</code></pre>
+                        </div>
+
+                        <div class="col s6">
+                            <h5 class="pre_tag">Our Solution:</h5>
+                            <pre class="pre_tag"><code>{{actualSolution}}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+    <div class="right-col">
+        <h6><i class="glyphicon glyphicon-question-sign"></i><strong>Conversation Board</strong></h6>
+
+        <div class="chat_room">
+            <P class="whitec conver">Ready..set...conversate!</P>
+            <div class="chat ">
+                <div ng-repeat="message in messages">
+                    <p class="whitec">&#9786; {{message.name}}:</p>
+                    <p class="custom whitec" style={color:white}>
+                        &#x268A; {{message.message}}
+                    </p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+
+        <form id="message_form">
+            <textarea class="u-full-width" id="message" name="message" ng-model="message.text"></textarea>
+            <a class="btn left red"  ng-click="sendMessage(current_user[0].name)">POST</a>
+        </form>
+    </div>
+</div>
